@@ -12,6 +12,16 @@
     "test:watch": "jest --watch",
     "type-check": "tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "lodash.merge": "^4.6.2",
     "next": "latest",
