@@ -20,7 +20,7 @@ export const HelloProvider = (props: { children: ReactNode }) => {
   return <HelloContext.Provider value={helloContext}>{props.children}</HelloContext.Provider>;
 };
 
-const useSample =
+const withHelloMsg =
   (
     WrappedComponent:
       | (React.ComponentClass<any> & { getInitialProps?(context: NextPageContext): any })
@@ -32,4 +32,4 @@ const useSample =
     return <WrappedComponent {...props} value={helloContext.value} setValue={helloContext.setValue} />;
   };
 
-export { useSample };
+export { withHelloMsg };

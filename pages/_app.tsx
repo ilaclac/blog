@@ -5,7 +5,7 @@ import theme from "../styles/theme";
 import { GlobalStyle } from "@styles/globalStyles";
 import UniversalHead from "../components/UniversalHead";
 import Layout from "../components/Layout";
-import { HelloProvider, useSample } from "@context/HelloContext";
+import { HelloProvider, withHelloMsg } from "@context/HelloContext";
 
 const metaData = {
   title: "Q Agency Task Blog",
@@ -23,7 +23,7 @@ const metaData = {
 };
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const EnhancedComponent = useSample(Component);
+  const EnhancedComponent = withHelloMsg(Component);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
