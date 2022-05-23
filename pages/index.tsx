@@ -1,15 +1,25 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from "react";
+import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import staticPropsWrapper from "@utils/staticPropsWrapper";
+import { fetchData } from "@lib/fetchData";
+import { POSTS_PATH } from "@lib/constants";
+import IndexPageHandler from "@components/pages/IndexPageHandler";
+import { ISetValue } from "@interfaces/index";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+interface IIndexPage extends InferGetStaticPropsType<typeof getStaticProps>, ISetValue {}
 
-export default IndexPage
+const IndexPage = ({ postsData, setValue }: IIndexPage) => {
+  return <IndexPageHandler postsData={postsData} setValue={setValue} />;
+};
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const postsData = await fetchData(POSTS_PATH);
+
+  return staticPropsWrapper(context, {
+    props: {
+      postsData,
+    },
+  });
+}
+
+export default IndexPage;

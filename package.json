@@ -1,20 +1,55 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4000",
+    "husky:branch": ".husky/check-branch-name.sh",
+    "lint:ci": "eslint ./ --ext .js,.ts",
+    "lint:fix": "eslint ./ --fix --ext .js,.ts",
+    "prepare": "husky install",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
     "type-check": "tsc"
   },
   "dependencies": {
+    "lodash.merge": "^4.6.2",
     "next": "latest",
+    "raw-loader": "^4.0.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "snarkdown": "^2.0.0",
+    "styled-components": "^5.3.5",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "@next/eslint-plugin-next": "^12.1.6",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^14.2.0",
+    "@types/jest": "^27.5.1",
+    "@types/lodash.merge": "^4.6.7",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
-    "typescript": "4.0"
+    "@types/styled-components": "^5.1.25",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-next": "^12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.2.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
   }
 }
