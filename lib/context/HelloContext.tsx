@@ -12,7 +12,8 @@ const HelloContext = createContext<IHelloContext>({} as IHelloContext);
 export const HelloProvider = (props: { children: ReactNode }) => {
   const [value, setValue] = useState(["Context"]);
   const helloContext = { value, setValue };
-  console.log("Hello from", value);
+
+  if (typeof window === undefined) console.log("Hello from", value);
 
   return <HelloContext.Provider value={helloContext}>{props.children}</HelloContext.Provider>;
 };

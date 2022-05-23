@@ -1,5 +1,9 @@
 # README
 
+## Project is hosted:
+
+-- https://blog-eight-gold.vercel.app/ --
+
 ## Project start:
 
 to start the project run:
