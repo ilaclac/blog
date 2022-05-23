@@ -14,7 +14,7 @@ export const HelloProvider = (props: { children: ReactNode }) => {
   const helloContext = { value, setValue };
 
   if (typeof window !== "undefined") {
-    console.log(typeof window !== undefined);
+    console.log("Hello from", value);
   }
 
   return <HelloContext.Provider value={helloContext}>{props.children}</HelloContext.Provider>;
